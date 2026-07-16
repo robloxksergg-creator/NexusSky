@@ -1,0 +1,201 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(6rem, 12vh, 10rem) 0;
+  background: linear-gradient(
+    to bottom,
+    #05060a 0%,
+    #07100a 30%,
+    #0a1a0c 55%,
+    #08120b 80%,
+    #06090a 100%
+  );
+  isolation: isolate;
+}
+
+.toxGlow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(45% 34% at 50% 40%, rgba(141, 255, 90, 0.16), transparent 70%),
+    radial-gradient(30% 24% at 18% 80%, rgba(63, 174, 42, 0.2), transparent 70%),
+    radial-gradient(28% 22% at 84% 22%, rgba(141, 255, 90, 0.12), transparent 70%);
+}
+
+/* animated toxic fog */
+.fog {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    60% 40% at 50% 60%,
+    rgba(120, 220, 90, 0.14),
+    transparent 70%
+  );
+  filter: blur(20px);
+  animation: fogpulse 8s ease-in-out infinite;
+}
+@keyframes fogpulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+/* hazard stripes divider */
+.hazard {
+  position: relative;
+  z-index: 2;
+  height: 14px;
+  width: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--ns-radioactive-deep) 0 22px,
+    #0a0f0a 22px 44px
+  );
+  box-shadow: 0 0 24px rgba(141, 255, 90, 0.4);
+  opacity: 0.7;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(4rem, 8vh, 6rem) clamp(1.2rem, 5vw, 3.5rem);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+.radSymbol {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 20px;
+  color: var(--ns-radioactive);
+  background: rgba(141, 255, 90, 0.08);
+  border: 1px solid rgba(141, 255, 90, 0.35);
+  box-shadow: 0 0 30px -6px rgba(141, 255, 90, 0.6);
+  animation: radblink 2.4s ease-in-out infinite;
+}
+@keyframes radblink {
+  0%, 100% { box-shadow: 0 0 24px -8px rgba(141, 255, 90, 0.5); }
+  50% { box-shadow: 0 0 44px -4px rgba(141, 255, 90, 0.9); }
+}
+
+.kicker {
+  font-family: var(--ns-font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ns-radioactive);
+}
+.heading {
+  margin: 0.6rem 0 0;
+  font-family: var(--ns-font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 5.5vw, 3.8rem);
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+  color: var(--ns-white);
+}
+.heading em {
+  font-style: normal;
+  color: var(--ns-radioactive);
+  text-shadow: 0 0 24px rgba(141, 255, 90, 0.5);
+}
+
+.lead {
+  margin: 1.4rem 0 0;
+  max-width: 58ch;
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  line-height: 1.7;
+  color: var(--ns-mist);
+}
+
+.warn {
+  margin-top: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.7rem 1.2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(141, 255, 90, 0.4);
+  background: rgba(141, 255, 90, 0.06);
+  font-family: var(--ns-font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ns-radioactive);
+}
+.warnDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--ns-radioactive);
+  box-shadow: 0 0 12px var(--ns-radioactive);
+  animation: livePulse 1.2s ease-in-out infinite;
+}
+@keyframes livePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+.cards {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+.card {
+  position: relative;
+  padding: 1.7rem;
+  border-radius: 18px;
+  border: 1px solid rgba(141, 255, 90, 0.18);
+  background: linear-gradient(160deg, rgba(12, 22, 12, 0.75), rgba(8, 12, 10, 0.75));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+.card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(var(--ns-radioactive), transparent);
+  box-shadow: 0 0 16px var(--ns-radioactive);
+}
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(141, 255, 90, 0.5);
+  box-shadow: 0 26px 50px -28px rgba(141, 255, 90, 0.5);
+}
+.cardIcon {
+  color: var(--ns-radioactive);
+  margin-bottom: 1rem;
+}
+.card h3 {
+  margin: 0 0 0.5rem;
+  font-family: var(--ns-font-display);
+  font-size: 1.2rem;
+  color: var(--ns-white);
+}
+.card p {
+  margin: 0;
+  font-size: 0.93rem;
+  line-height: 1.6;
+  color: var(--ns-cold-gray);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fog, .radSymbol, .warnDot { animation: none; }
+}

@@ -1,0 +1,31 @@
+.field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform, opacity;
+}
+
+.dust {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9), transparent 70%);
+}
+.ember {
+  background: radial-gradient(circle, var(--ns-orange-soft), transparent 70%);
+  box-shadow: 0 0 6px var(--ns-orange);
+}
+.toxic {
+  background: radial-gradient(circle, var(--ns-radioactive), transparent 70%);
+  box-shadow: 0 0 8px var(--ns-radioactive-deep);
+}
+.spark {
+  background: radial-gradient(circle, var(--ns-turquoise-soft), transparent 70%);
+  box-shadow: 0 0 6px var(--ns-turquoise);
+}
+.ash {
+  background: radial-gradient(circle, rgba(160, 170, 185, 0.7), transparent 70%);
+}

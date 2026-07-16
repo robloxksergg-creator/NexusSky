@@ -1,0 +1,33 @@
+.wrap {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform;
+  filter: drop-shadow(0 22px 30px rgba(0, 0, 0, 0.45));
+}
+
+.svg {
+  display: block;
+  overflow: visible;
+}
+
+.propeller {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: spin 0.28s linear infinite;
+}
+
+.glow {
+  filter: drop-shadow(0 0 6px var(--ns-turquoise));
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .propeller {
+    animation: none;
+  }
+}

@@ -1,0 +1,31 @@
+.gear {
+  position: absolute;
+  pointer-events: none;
+  will-change: transform;
+  color: var(--ns-steel);
+}
+.gear svg {
+  display: block;
+}
+.cw {
+  animation: spin-cw linear infinite;
+}
+.ccw {
+  animation: spin-ccw linear infinite;
+}
+@keyframes spin-cw {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin-ccw {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cw,
+  .ccw {
+    animation: none;
+  }
+}
