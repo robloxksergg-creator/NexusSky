@@ -12,6 +12,7 @@ const LINK_KEYS = [
 ] as const;
 
 const SERVER_IP = "nexus-mc.fun";
+const DOCS_URL = "https://nexuswiki.pages.dev/";
 
 export function Nav() {
   const { t, lang, toggle } = useI18n();
@@ -47,6 +48,9 @@ export function Nav() {
               {t.nav.links[l.key]}
             </a>
           ))}
+          <a href={DOCS_URL} target="_blank" rel="noopener noreferrer">
+            {lang === "ru" ? "Вики" : "Wiki"}
+          </a>
         </div>
         <div className={styles.right}>
           <button
