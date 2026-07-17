@@ -28,9 +28,9 @@ import { ChevronIcon } from "@/components/nexussky/Icons";
 import styles from "./Underground.module.css";
 
 const STAT_NUMS = [
-  { to: 1240, suffix: "+" },
-  { to: 68, suffix: "M" },
-  { to: 340, suffix: "" },
+  { to: 10, suffix: "+" },
+  { to: 1, suffix: "k" },
+  { to: 1, suffix: "" },
   { to: 99, suffix: "%" },
 ];
 
