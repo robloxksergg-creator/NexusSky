@@ -113,10 +113,10 @@ export function Hero() {
   const [downloadOpen, setDownloadOpen] = useState(false);
 
   const STATS = [
-    { value: "1.20.1", label: t.hero.stats.version },
+    { value: "1.21.1", label: t.hero.stats.version },
     { value: "Create", label: t.hero.stats.core },
     { value: "24 / 7", label: t.hero.stats.uptime },
-    { value: "1,240+", label: t.hero.stats.explorers },
+    { value: "10", label: t.hero.stats.explorers },
   ];
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
